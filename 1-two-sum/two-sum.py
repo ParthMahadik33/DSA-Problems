@@ -1,9 +1,12 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        
-        for i in range(0,len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    return [i,j]
+from collections import defaultdict
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        map=defaultdict(list)
+        for i in range(0,len(nums)):
+            x=target-nums[i]
+            if x in map.keys():
+                return [map.get(x),i]
+            else:
+                map[nums[i]]=i    
 
         
